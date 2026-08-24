@@ -21,7 +21,7 @@ export default async function ProductPage({
     <Container>
       <div className="py-8">
         <Link
-          href="/products"
+          href="/"
           className="text-sm text-foreground/60 transition-colors hover:text-foreground"
         >
           ← Tillbaka
