@@ -2,8 +2,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { Header } from "@/components/layout/Header";
-
+import { Footer } from "../components/layout/Footer";
+import { Header } from "../components/layout/Header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,12 +17,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sellpoint",
+  title: "Sltex-3D",
   description:
     "Demo-webshop för lekplatsutrustning med interaktiva 3D-produktmodeller.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="sv"
@@ -31,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <Header />
         <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -4,13 +4,13 @@ import type { Product } from "@/types/product";
 export const products: Product[] = [
   {
     id: "1",
-    slug: "lekland-mini",
-    name: "Lekland Mini",
+    slug: "cirkus",
+    name: "Cirkus",
     description:
-      "En kompakt lekplatsmodul som samlar rutschkana, klätterparti och lekhus i en enda, yteffektiv struktur. Perfekt för mindre gårdar och förskolemiljöer.",
+      "Cirkusinspirerad lekplatspaviljong med tak, bänkar runt om och lekfulla cirkusmotiv. En omtyckt samlingsplats och mötesplats för de yngsta barnen.",
     category: "playgrounds",
     price: 42900,
-    images: ["/images/products/lekland-mini.svg"],
+    images: ["/images/products/A-10-430x344.webp"],
     specifications: {
       height: "2.4 m",
       width: "3.0 m",
@@ -22,6 +22,23 @@ export const products: Product[] = [
   },
   {
     id: "2",
+    slug: "balansbana-rak",
+    name: "Balansbana Rak",
+    description:
+      "Rak balansbana med hängbro, tunnel och klätternät i änden. Tränar barns balans, motorik och mod längs en sammanhängande bana.",
+    category: "playgrounds",
+    price: 68900,
+    images: ["/images/products/F-5.webp"],
+    specifications: {
+      height: "1.6 m",
+      width: "0.6 m",
+      length: "7.0 m",
+      ageRange: "4–10 år",
+      capacity: 4,
+    },
+  },
+  {
+    id: "11",
     slug: "skogslektorn-tunnel-rutschkana",
     name: "Skogslektorn med tunnel och rutschkana",
     description:
@@ -72,13 +89,13 @@ export const products: Product[] = [
   },
   {
     id: "3",
-    slug: "swing-duo",
-    name: "Gungställning Duo",
+    slug: "enkel-klattring",
+    name: "Enkel klättring",
     description:
-      "Klassisk gungställning i pulverlackerat stål med två gungsitsar. Robust konstruktion med mjuka, väderbeständiga upphängningar.",
-    category: "swings",
+      "Kompakt lekställning med rutschkana, klättervägg och labyrintpanel. Ett prisvärt förstaval för mindre gårdar och entréer.",
+    category: "climbing",
     price: 15900,
-    images: ["/images/products/swing-duo.svg"],
+    images: ["/images/products/enkelklätter.webp"],
     specifications: {
       height: "2.2 m",
       width: "0.9 m",
@@ -89,17 +106,17 @@ export const products: Product[] = [
   },
   {
     id: "4",
-    slug: "swing-nest",
-    name: "Fågelbogunga",
+    slug: "hammockgunga",
+    name: "Hammockgunga",
     description:
-      "Rund korggunga som ger plats för flera barn samtidigt. En av våra mest populära produkter tack vare den sociala gungupplevelsen.",
+      "Repspänd hammockgunga där flera barn kan ligga eller sitta samtidigt. Den generösa liggytan gör den till en social mötesplats på lekplatsen.",
     category: "swings",
     price: 12400,
-    images: ["/images/products/swing-nest.svg"],
+    images: ["/images/products/C-5-430x344.webp"],
     specifications: {
-      height: "2.0 m",
-      width: "1.2 m",
-      length: "1.2 m",
+      height: "1.8 m",
+      width: "1.0 m",
+      length: "2.8 m",
       ageRange: "3–12 år",
       capacity: 3,
     },
@@ -107,13 +124,13 @@ export const products: Product[] = [
   },
   {
     id: "5",
-    slug: "slide-wave",
-    name: "Vågrutschkana",
+    slug: "rutschkombo-twin",
+    name: "Rutschkombo Twin",
     description:
-      "Fristående rutschkana med vågformad bana som ger extra fart och skoj. Halksäker yta och förstärkta kanter genomgående.",
-    category: "slides",
+      "Kombinationslekplats med två lektorn, förbindande tunnel och en rutschkana på vardera sida. Ger dubbelt så mycket lek på liten yta.",
+    category: "playgrounds",
     price: 18700,
-    images: ["/images/products/slide-wave.svg"],
+    images: ["/images/products/BLFJ012W.webp"],
     specifications: {
       height: "1.8 m",
       width: "0.8 m",
@@ -130,7 +147,7 @@ export const products: Product[] = [
       "Spiralformad rutschkana i rostfritt stål som sparar markyta samtidigt som den ger en längre, mer spännande åkning.",
     category: "slides",
     price: 24500,
-    images: ["/images/products/slide-spiral.svg"],
+    images: ["/images/products/kids-spiral-slide-500x500.webp"],
     specifications: {
       height: "2.6 m",
       width: "1.4 m",
@@ -144,10 +161,10 @@ export const products: Product[] = [
     slug: "climbing-tower",
     name: "Klättertorn",
     description:
-      "Flervånings klättertorn med repbroar, klätterväggar och utsiktsplattform. Utformat för att utmana motorik och balans på ett säkert sätt.",
+      "Flervånings klättertorn med klättervägg, förbindande tunnel och takförsedd utsiktsplattform. Utformat för att utmana motorik och balans på ett säkert sätt.",
     category: "climbing",
     price: 54900,
-    images: ["/images/products/climbing-tower.svg"],
+    images: ["/images/products/BLFJ040_2-430x344.webp"],
     specifications: {
       height: "3.8 m",
       width: "3.0 m",
@@ -162,10 +179,10 @@ export const products: Product[] = [
     slug: "climbing-net",
     name: "Klätternät",
     description:
-      "Fristående klätternät i kraftigt rep, spänt mellan tre stålpelare. Ger en dynamisk klätterupplevelse som skiljer sig från traditionella klätterställningar.",
+      "Fristående klätternät i kraftigt rep, spänt mellan stålpelare. Ger en dynamisk klätterupplevelse som skiljer sig från traditionella klätterställningar.",
     category: "climbing",
     price: 31200,
-    images: ["/images/products/climbing-net.svg"],
+    images: ["/images/products/N-3.webp"],
     specifications: {
       height: "2.8 m",
       width: "3.5 m",
@@ -176,13 +193,13 @@ export const products: Product[] = [
   },
   {
     id: "9",
-    slug: "bench-park",
-    name: "Parkbänk",
+    slug: "rundbank",
+    name: "Rundbänk",
     description:
-      "Väderbeständig parkbänk i trä och stål som kompletterar lekplatsen med sittplatser för vårdnadshavare. Enkel att placera var som helst på anläggningen.",
+      "S-formad sittbänk i trä och gabion som slingrar sig runt ett träd eller en planting. Ger gott om sittplatser för vårdnadshavare utan att ta extra markyta.",
     category: "accessories",
     price: 6900,
-    images: ["/images/products/bench-park.svg"],
+    images: ["/images/products/bench-park.svg.jpg"],
     specifications: {
       height: "0.8 m",
       width: "0.6 m",
@@ -192,17 +209,19 @@ export const products: Product[] = [
   },
   {
     id: "10",
-    slug: "fence-safety",
-    name: "Säkerhetsstaket",
+    slug: "lekskepp",
+    name: "Lekskepp",
     description:
-      "Modulärt staket i pulverlackerat stål som avgränsar lekytan på ett tydligt och säkert sätt utan att kännas instängande.",
-    category: "accessories",
-    price: 4200,
-    images: ["/images/products/fence-safety.svg"],
+      "Skeppsformad lekplats i trä med kikhål, djurmotiv och flera däcksnivåer att utforska. Fantasifull lek för hela gänget i en och samma struktur.",
+    category: "playgrounds",
+    price: 47500,
+    images: ["/images/products/D-8-430x344.webp"],
     specifications: {
-      height: "0.9 m",
-      width: "0.05 m",
-      length: "2.0 m",
+      height: "2.2 m",
+      width: "2.5 m",
+      length: "5.5 m",
+      ageRange: "3–10 år",
+      capacity: 8,
     },
   },
 ];
