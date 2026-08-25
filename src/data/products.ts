@@ -22,22 +22,52 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    slug: "lekland-xl",
-    name: "Lekland XL",
+    slug: "skogslektorn-tunnel-rutschkana",
+    name: "Skogslektorn med tunnel och rutschkana",
     description:
-      "Vår största kombinationslekplats med flera våningsplan, dubbla rutschkanor och integrerat klätternät. Byggd för att hålla ett helt skolgårdsgäng sysselsatt.",
+      "BLFJ048 är ett certifierat, underhållsfritt skogslektorn i varmförzinkat och pulverlackerat stål samt UV-beständigt HDPE med två torn, rutschkana, klättervägg, tunnel och interaktiv labyrintpanel enligt EN 1176-standarderna – går att beställa i önskad färg.",
+    details: [
+      "Skogslektorn med tunnel och rutschkana i rostfritt stål (artikelnummer BLFJ048) är en offentlig lekplatsanordning som kombinerar rutschning, klättring, kryplek och interaktiv lek. Produkten ingår i Skogsserien och har en naturinspirerad utformning som passar på offentliga lekplatser samt i förskole- och skolmiljöer.",
+      "Lekställningen består av två torn som sammanbinds av en tunnel. Tunneln skapar en spännande passage mellan tornen och uppmuntrar till krypning, gömlek och utforskande. En klättervägg och ett klätterelement ger barnen olika vägar upp och bidrar till att utveckla styrka, koordination och motorik.",
+      "Rutschkanan har en glidyta av rostfritt stål och utgår från en plattformshöjd på 90 cm. Den interaktiva labyrintpanelen erbjuder taktil och visuell stimulans, medan fågelmataren och de naturinspirerade detaljerna ger möjlighet till lugnare lek och lärande om skogens djurliv.",
+      "Den certifierade och underhållsfria lekplatsutrustningen har en robust konstruktion av varmförzinkat och pulverlackerat kolstål. Sidopaneler, tak och dekorativa element är tillverkade av UV-beständigt HDPE-material. Plattformarna har halkskyddade ytor, tunneln består av ett slitstarkt korrugerat PP-rör och rutschkanan har en glidyta av rostfritt stål. Samtliga fästelement är tillverkade av rostfritt stål.",
+      "Lekställningen är dekorerad med björk-, busk- och lövmotiv samt skogsdjur som uggla, räv, igelkott och padda.",
+      "Produkten uppfyller kraven i EN 1176-1:2017+A1:2024 och EN 1176-3:2018 – går att beställa i önskad färg.",
+      "Ett varierat skogslektorn med tunnel, klättring och rutschkana som uppmuntrar till rörelse och utforskande.",
+    ],
     category: "playgrounds",
     price: 68900,
-    images: ["/images/products/lekland-xl.svg"],
+    images: [
+      "/images/products/BFLFJ048_1.webp",
+      "/images/products/BLFJ048_2.webp",
+    ],
     model3d: {
       url: "/models/lekland-xl.glb",
     },
+    downloads: [
+      {
+        label: "Produktblad (SV)",
+        href: "/documents/skogslektorn-tunnel-rutschkana/BLFJ013_SE.pdf",
+        format: "PDF",
+      },
+      {
+        label: "Produktblad (EN)",
+        href: "/documents/skogslektorn-tunnel-rutschkana/BLFJ013_EN.pdf",
+        format: "PDF",
+      },
+      {
+        label: "Ritning (topp)",
+        href: "/documents/skogslektorn-tunnel-rutschkana/BLFJ013_top.dwg",
+        format: "DWG",
+      },
+    ],
     specifications: {
-      height: "3.6 m",
-      width: "5.5 m",
-      length: "7.0 m",
-      ageRange: "4–12 år",
-      capacity: 14,
+      height: "257 cm",
+      width: "215 cm",
+      length: "288 cm",
+      safetyZone: "548x518 cm",
+      ageRange: "2–10 år",
+      capacity: 7,
     },
   },
   {
