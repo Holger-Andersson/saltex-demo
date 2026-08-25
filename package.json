@@ -1,5 +1,5 @@
 {
-  "name": "saltexdemo",
+  "name": "saltex-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,4 +27,4 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   }
-}
+} 
