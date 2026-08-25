@@ -1,3 +1,4 @@
+// Kort som visar en produkt i en produktlista och länkar vidare till produktens detaljsida.
 import Link from "next/link";
 
 import { CATEGORY_LABELS, formatPrice } from "@/lib/products";

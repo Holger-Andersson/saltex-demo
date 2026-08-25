@@ -1,3 +1,4 @@
+// 3D-canvas med kamerakontroller (OrbitControls) för att visa och rotera en produktmodell interaktivt.
 "use client";
 
 import { OrbitControls, Stage } from "@react-three/drei";

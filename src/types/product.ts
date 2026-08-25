@@ -1,3 +1,4 @@
+// Typdefinitioner för produkter och produktkategorier som används genom hela applikationen.
 export type ProductCategory =
   | "playgrounds"
   | "swings"

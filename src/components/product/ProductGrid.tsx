@@ -1,3 +1,4 @@
+// Rutnätskomponent som renderar en lista av produkter som ProductCard.
 import { ProductCard } from "@/components/product/ProductCard";
 import type { Product } from "@/types/product";
 

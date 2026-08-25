@@ -1,3 +1,4 @@
+// Sidhuvud med sajtens namn/logotyp och huvudnavigering till produktsidan.
 import Link from "next/link";
 
 import { Container } from "@/components/layout/Container";

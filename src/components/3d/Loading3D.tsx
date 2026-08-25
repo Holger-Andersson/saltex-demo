@@ -1,3 +1,4 @@
+// Laddningsindikator som visas medan 3D-modeller hämtas i produktvisaren.
 "use client";
 
 import { Loader } from "@react-three/drei";

@@ -1,3 +1,4 @@
+// Statisk produktdata (mockdata) som används av demot i väntan på en riktig datakälla.
 import type { Product } from "@/types/product";
 
 export const products: Product[] = [

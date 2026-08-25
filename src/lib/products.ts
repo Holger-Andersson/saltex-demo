@@ -1,3 +1,4 @@
+// Hjälpfunktioner för att hämta och filtrera produkter samt formatera pris och kategorinamn.
 import { products } from "@/data/products";
 import type { Product, ProductCategory } from "@/types/product";
 

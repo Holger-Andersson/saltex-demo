@@ -1,3 +1,4 @@
+// Startsidan för Sellpoint-demot.
 import { Container } from "@/components/layout/Container";
 
 export default function Home() {

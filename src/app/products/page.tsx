@@ -1,3 +1,4 @@
+// Produktlistningssida som visar samtliga produkter i ett rutnät.
 import { Container } from "@/components/layout/Container";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { getAllProducts } from "@/lib/products";

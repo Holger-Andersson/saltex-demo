@@ -1,3 +1,4 @@
+// Layoutkomponent som centrerar innehåll och begränsar sidans maxbredd med horisontell padding.
 import type { ReactNode } from "react";
 
 export function Container({ children }: { children: ReactNode }) {

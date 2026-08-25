@@ -1,3 +1,4 @@
+// Visar produktens tekniska specifikationer (mått, åldersintervall, kapacitet) i tabellform.
 import type { Product } from "@/types/product";
 
 const LABELS: Record<keyof Product["specifications"], string> = {

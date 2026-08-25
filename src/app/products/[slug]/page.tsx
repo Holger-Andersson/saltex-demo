@@ -1,3 +1,4 @@
+// Produktdetaljsida: visar 3D-modell/bild, produktinformation och specifikationer för en enskild produkt.
 import Link from "next/link";
 import { notFound } from "next/navigation";
 

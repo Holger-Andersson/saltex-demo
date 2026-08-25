@@ -1,3 +1,4 @@
+// Root layout: sätter upp typsnitt och sidmetadata, samt den gemensamma sidstrukturen (header + main) för hela appen.
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 

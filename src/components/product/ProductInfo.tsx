@@ -1,3 +1,4 @@
+// Visar produktinformation (kategori, namn, pris, beskrivning) samt en köp-knapp.
 import { CATEGORY_LABELS, formatPrice } from "@/lib/products";
 import type { Product } from "@/types/product";
 
