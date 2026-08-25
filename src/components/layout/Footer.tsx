@@ -37,7 +37,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#produkter"
+                  href="/products"
                   className="transition-colors hover:text-foreground"
                 >
                   Produkter

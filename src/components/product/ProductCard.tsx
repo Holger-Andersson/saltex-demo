@@ -1,3 +1,4 @@
+// Kort som visar en produkt i en produktlista och länkar vidare till produktens detaljsida.
 import Link from "next/link";
 
 import { CATEGORY_LABELS, formatPrice } from "@/lib/products";
@@ -6,7 +7,7 @@ import type { Product } from "@/types/product";
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Link
-      href={`/?product=${product.slug}`}
+      href={`/products/${product.slug}`}
       className="group block overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-xl"
     >
       <div className="aspect-[4/3] overflow-hidden bg-background">

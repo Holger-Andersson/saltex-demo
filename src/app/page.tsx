@@ -1,15 +1,9 @@
+// Startsidan för Sellpoint-demot.
 import Link from "next/link";
 
-import { ProductViewer } from "@/components/3d/ProductViewer";
 import { Container } from "@/components/layout/Container";
 import { ProductGrid } from "@/components/product/ProductGrid";
-import { ProductInfo } from "@/components/product/ProductInfo";
-import { ProductSpecifications } from "@/components/product/ProductSpecifications";
-import {
-  CATEGORY_LABELS,
-  getAllProducts,
-  getProductBySlug,
-} from "@/lib/products";
+import { CATEGORY_LABELS, getAllProducts } from "@/lib/products";
 import type { ProductCategory } from "@/types/product";
 
 const CATEGORY_ORDER: ProductCategory[] = [
@@ -35,57 +29,7 @@ function isProductCategory(value: unknown): value is ProductCategory {
 }
 
 export default async function ProductsPage({ searchParams }: PageProps<"/">) {
-  const { category: categoryParam, product: productParam } =
-    await searchParams;
-
-  const selectedSlug =
-    typeof productParam === "string" ? productParam : undefined;
-  const selectedProduct = selectedSlug
-    ? getProductBySlug(selectedSlug)
-    : undefined;
-
-  if (selectedProduct) {
-    return (
-      <Container>
-        <div className="py-8">
-          <Link
-            href="/"
-            className="text-sm text-foreground/60 transition-colors hover:text-foreground"
-          >
-            ← Tillbaka
-          </Link>
-
-          <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-5">
-            <div className="lg:col-span-3">
-              {selectedProduct.model3d ? (
-                <div className="h-[420px] overflow-hidden rounded-xl border border-border bg-background sm:h-[520px] lg:h-[600px]">
-                  <ProductViewer modelUrl={selectedProduct.model3d.url} />
-                </div>
-              ) : (
-                // eslint-disable-next-line @next/next/no-img-element -- static placeholder SVG, no optimization needed
-                <img
-                  src={selectedProduct.images[0]}
-                  alt={selectedProduct.name}
-                  className="aspect-[4/3] w-full rounded-xl border border-border bg-background object-cover"
-                />
-              )}
-            </div>
-
-            <div className="lg:col-span-2">
-              <ProductInfo product={selectedProduct} />
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <ProductSpecifications
-              specifications={selectedProduct.specifications}
-            />
-          </div>
-        </div>
-      </Container>
-    );
-  }
-
+  const { category: categoryParam } = await searchParams;
   const activeCategory = isProductCategory(categoryParam)
     ? categoryParam
     : undefined;

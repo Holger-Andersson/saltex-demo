@@ -1,3 +1,4 @@
+// Sidhuvud med sajtens namn/logotyp och huvudnavigering till produktsidan.
 import Link from "next/link";
 
 import { Container } from "@/components/layout/Container";
@@ -24,7 +25,7 @@ export function Header() {
               Hem
             </Link>
             <Link
-              href="/#produkter"
+              href="/products"
               className="text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
             >
               Produkter
@@ -32,7 +33,7 @@ export function Header() {
           </nav>
 
           <Link
-            href="/#produkter"
+            href="/products"
             className="inline-flex items-center rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent/90"
           >
             Utforska

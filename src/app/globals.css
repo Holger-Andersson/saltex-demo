@@ -1,3 +1,4 @@
+/* Globala stilar: Tailwind-import, CSS-variabler för temafärger/typsnitt och grundläggande body-styling. */
 @import "tailwindcss";
 
 :root {
