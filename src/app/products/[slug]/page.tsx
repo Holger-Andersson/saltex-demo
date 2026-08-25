@@ -1,11 +1,16 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { ProductViewer } from "@/components/3d/ProductViewer";
 import { Container } from "@/components/layout/Container";
+import { ProductDescription } from "@/components/product/ProductDescription";
+import { ProductDownloads } from "@/components/product/ProductDownloads";
 import { ProductInfo } from "@/components/product/ProductInfo";
+import { ProductMedia } from "@/components/product/ProductMedia";
+import { ProductGrid } from "@/components/product/ProductGrid";
 import { ProductSpecifications } from "@/components/product/ProductSpecifications";
-import { getProductBySlug } from "@/lib/products";
+import { getProductBySlug, getProductsByCategory } from "@/lib/products";
+
+const RELATED_PRODUCTS_LIMIT = 3;
 
 export default async function ProductPage({
   params,
@@ -17,30 +22,35 @@ export default async function ProductPage({
     notFound();
   }
 
+  const relatedProducts = getProductsByCategory(product.category)
+    .filter((candidate) => candidate.id !== product.id)
+    .slice(0, RELATED_PRODUCTS_LIMIT);
+
   return (
     <Container>
       <div className="py-8">
-        <Link
-          href="/products"
-          className="text-sm text-foreground/60 transition-colors hover:text-foreground"
-        >
-          ← Tillbaka
-        </Link>
+        <nav aria-label="Brödsmulor" className="flex items-center gap-2 text-sm text-foreground/60">
+          <Link href="/" className="transition-colors hover:text-foreground">
+            Hem
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link
+            href="/products"
+            className="transition-colors hover:text-foreground"
+          >
+            Produkter
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span className="text-foreground">{product.name}</span>
+        </nav>
 
         <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
-            {product.model3d ? (
-              <div className="h-[420px] overflow-hidden rounded-xl border border-border bg-background sm:h-[520px] lg:h-[600px]">
-                <ProductViewer modelUrl={product.model3d.url} />
-              </div>
-            ) : (
-              // eslint-disable-next-line @next/next/no-img-element -- static placeholder SVG, no optimization needed
-              <img
-                src={product.images[0]}
-                alt={product.name}
-                className="aspect-[4/3] w-full rounded-xl border border-border bg-background object-cover"
-              />
-            )}
+            <ProductMedia
+              model3d={product.model3d}
+              images={product.images}
+              productName={product.name}
+            />
           </div>
 
           <div className="lg:col-span-2">
@@ -49,8 +59,29 @@ export default async function ProductPage({
         </div>
 
         <div className="mt-16">
+          <ProductDescription details={product.details} />
+        </div>
+
+        <div className="mt-12">
           <ProductSpecifications specifications={product.specifications} />
         </div>
+
+        {product.downloads && product.downloads.length > 0 && (
+          <div className="mt-12 border-t border-border pt-8">
+            <ProductDownloads downloads={product.downloads} />
+          </div>
+        )}
+
+        {relatedProducts.length > 0 && (
+          <div className="mt-20 border-t border-border pt-12">
+            <h2 className="text-xl font-semibold tracking-tight">
+              Liknande produkter
+            </h2>
+            <div className="mt-6">
+              <ProductGrid products={relatedProducts} />
+            </div>
+          </div>
+        )}
       </div>
     </Container>
   );
