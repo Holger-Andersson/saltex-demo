@@ -4,6 +4,8 @@ export type ProductCategory =
   | "swings"
   | "slides"
   | "climbing"
+  | "sandboxes"
+  | "playhouses"
   | "accessories";
 
 export interface ProductDownload {
@@ -24,6 +26,9 @@ export interface Product {
   category: ProductCategory;
 
   price: number;
+
+  // TODO(kollegor): koppla mot verkligt lagersaldo. Saknas värde = antas i lager.
+  inStock?: boolean;
 
   images: string[];
 

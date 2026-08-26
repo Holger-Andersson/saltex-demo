@@ -1,14 +1,16 @@
-// Produktdetaljsida: visar 3D-modell/bild, produktinformation och specifikationer för en enskild produkt.
-import Link from "next/link";
+// Produktdetaljsida: slår upp produkten via slug och sätter ihop media, info, specifikationer
+// och relaterat innehåll. All layout/markup ligger i @/components/product.
 import { notFound } from "next/navigation";
 
 import { Container } from "@/components/layout/Container";
+import { ProductBreadcrumb } from "@/components/product/ProductBreadcrumb";
 import { ProductDescription } from "@/components/product/ProductDescription";
 import { ProductDownloads } from "@/components/product/ProductDownloads";
 import { ProductInfo } from "@/components/product/ProductInfo";
 import { ProductMedia } from "@/components/product/ProductMedia";
-import { ProductGrid } from "@/components/product/ProductGrid";
+import { ProductSafety } from "@/components/product/ProductSafety";
 import { ProductSpecifications } from "@/components/product/ProductSpecifications";
+import { RelatedProducts } from "@/components/product/RelatedProducts";
 import { getProductBySlug, getProductsByCategory } from "@/lib/products";
 
 const RELATED_PRODUCTS_LIMIT = 3;
@@ -24,26 +26,13 @@ export default async function ProductPage({
   }
 
   const relatedProducts = getProductsByCategory(product.category)
-    .filter((candidate) => candidate.id !== product.id)
+    .filter((candidate) => candidate.slug !== product.slug)
     .slice(0, RELATED_PRODUCTS_LIMIT);
 
   return (
     <Container>
       <div className="py-8">
-        <nav aria-label="Brödsmulor" className="flex items-center gap-2 text-sm text-foreground/60">
-          <Link href="/" className="transition-colors hover:text-foreground">
-            Hem
-          </Link>
-          <span aria-hidden="true">/</span>
-          <Link
-            href="/products"
-            className="transition-colors hover:text-foreground"
-          >
-            Produkter
-          </Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-foreground">{product.name}</span>
-        </nav>
+        <ProductBreadcrumb productName={product.name} />
 
         <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -67,22 +56,17 @@ export default async function ProductPage({
           <ProductSpecifications specifications={product.specifications} />
         </div>
 
+        <div className="mt-8">
+          <ProductSafety safetyZone={product.specifications.safetyZone} />
+        </div>
+
         {product.downloads && product.downloads.length > 0 && (
           <div className="mt-12 border-t border-border pt-8">
             <ProductDownloads downloads={product.downloads} />
           </div>
         )}
 
-        {relatedProducts.length > 0 && (
-          <div className="mt-20 border-t border-border pt-12">
-            <h2 className="text-xl font-semibold tracking-tight">
-              Liknande produkter
-            </h2>
-            <div className="mt-6">
-              <ProductGrid products={relatedProducts} />
-            </div>
-          </div>
-        )}
+        <RelatedProducts products={relatedProducts} />
       </div>
     </Container>
   );
