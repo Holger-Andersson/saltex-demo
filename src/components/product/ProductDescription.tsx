@@ -1,4 +1,3 @@
-// Visar produktens längre, styckeindelade beskrivning ("Om produkten"). Renderar inget om den saknas.
 import type { Product } from "@/types/product";
 
 export function ProductDescription({

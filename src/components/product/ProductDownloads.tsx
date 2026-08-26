@@ -1,4 +1,3 @@
-// Listar nedladdningsbara filer (produktblad, ritningar) för en produkt, som pillformade länkar.
 import type { ProductDownload } from "@/types/product";
 
 export function ProductDownloads({

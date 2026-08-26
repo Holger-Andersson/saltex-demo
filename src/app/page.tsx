@@ -11,8 +11,6 @@ const CATEGORY_ORDER: ProductCategory[] = [
   "swings",
   "slides",
   "climbing",
-  "sandboxes",
-  "playhouses",
   "accessories",
 ];
 
@@ -21,8 +19,6 @@ const CATEGORY_IMAGES: Record<ProductCategory, string> = {
   swings: "/images/products/C-5-430x344.webp",
   slides: "/images/products/kids-spiral-slide-500x500.webp",
   climbing: "/images/products/BLFJ040_2-430x344.webp",
-  sandboxes: "/images/products/sandbord-multivaning.webp",
-  playhouses: "/images/products/skogskoja-w.webp",
   accessories: "/images/products/bench-park.svg.jpg",
 };
 
