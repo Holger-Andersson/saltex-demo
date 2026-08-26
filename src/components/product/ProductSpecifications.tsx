@@ -1,6 +1,9 @@
 import type { Product } from "@/types/product";
 
-const LABELS: Record<keyof Product["specifications"], string> = {
+const LABELS: Record<
+  Exclude<keyof Product["specifications"], "safetyZone">,
+  string
+> = {
   height: "Höjd",
   width: "Bredd",
   length: "Längd",
@@ -14,7 +17,9 @@ export function ProductSpecifications({
   specifications: Product["specifications"];
 }) {
   const entries = (
-    Object.keys(LABELS) as Array<keyof Product["specifications"]>
+    Object.keys(LABELS) as Array<
+      Exclude<keyof Product["specifications"], "safetyZone">
+    >
   )
     .filter((key) => specifications[key] !== undefined)
     .map((key) => [LABELS[key], specifications[key]] as const);

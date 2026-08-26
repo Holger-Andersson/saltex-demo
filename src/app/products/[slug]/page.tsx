@@ -1,11 +1,18 @@
-import Link from "next/link";
+// Produktdetaljsida: slår upp produkten via slug och sätter ihop media, info, specifikationer
+// och relaterat innehåll. All layout/markup ligger i @/components/product.
 import { notFound } from "next/navigation";
 
 import { ProductViewer } from "@/components/3d/ProductViewer";
 import { Container } from "@/components/layout/Container";
+import { ProductBreadcrumb } from "@/components/product/ProductBreadcrumb";
+import { ProductDownloads } from "@/components/product/ProductDownloads";
 import { ProductInfo } from "@/components/product/ProductInfo";
+import { ProductSafety } from "@/components/product/ProductSafety";
 import { ProductSpecifications } from "@/components/product/ProductSpecifications";
-import { getProductBySlug } from "@/lib/products";
+import { RelatedProducts } from "@/components/product/RelatedProducts";
+import { getProductBySlug, getProductsByCategory } from "@/lib/products";
+
+const RELATED_PRODUCTS_LIMIT = 3;
 
 export default async function ProductPage({
   params,
@@ -17,15 +24,14 @@ export default async function ProductPage({
     notFound();
   }
 
+  const relatedProducts = getProductsByCategory(product.category)
+    .filter((candidate) => candidate.slug !== product.slug)
+    .slice(0, RELATED_PRODUCTS_LIMIT);
+
   return (
     <Container>
       <div className="py-8">
-        <Link
-          href="/"
-          className="text-sm text-foreground/60 transition-colors hover:text-foreground"
-        >
-          ← Tillbaka
-        </Link>
+        <ProductBreadcrumb productName={product.name} />
 
         <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -51,6 +57,18 @@ export default async function ProductPage({
         <div className="mt-16">
           <ProductSpecifications specifications={product.specifications} />
         </div>
+
+        <div className="mt-8">
+          <ProductSafety safetyZone={product.specifications.safetyZone} />
+        </div>
+
+        {product.downloads && product.downloads.length > 0 && (
+          <div className="mt-12 border-t border-border pt-8">
+            <ProductDownloads downloads={product.downloads} />
+          </div>
+        )}
+
+        <RelatedProducts products={relatedProducts} />
       </div>
     </Container>
   );
