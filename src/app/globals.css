@@ -22,3 +22,30 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+@keyframes drag-hint-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  12%,
+  75% {
+    opacity: 1;
+  }
+}
+
+@keyframes drag-hint-move {
+  0%,
+  100% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drag-hint {
+    display: none;
+  }
+}
