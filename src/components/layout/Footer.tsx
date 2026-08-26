@@ -29,7 +29,13 @@ const SOCIAL_LINKS = [
           stroke="currentColor"
           strokeWidth="1.5"
         />
-        <circle cx="10" cy="10" r="3.2" stroke="currentColor" strokeWidth="1.5" />
+        <circle
+          cx="10"
+          cy="10"
+          r="3.2"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
         <circle cx="14" cy="6" r="0.9" fill="currentColor" />
       </>
     ),
@@ -98,9 +104,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-accent">
-              Företaget
-            </h4>
+            <h4 className="text-sm font-semibold text-accent">Företaget</h4>
             <ul className="mt-3 space-y-2 text-sm text-accent/70">
               <li>
                 <Link
@@ -119,10 +123,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/leverans"
-                  className="transition-colors hover:text-accent"
-                >
+                <Link href="/" className="transition-colors hover:text-accent">
                   Leverans
                 </Link>
               </li>
@@ -133,18 +134,12 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-accent">Juridik</h4>
             <ul className="mt-3 space-y-2 text-sm text-accent/70">
               <li>
-                <Link
-                  href="/kopvillkor"
-                  className="transition-colors hover:text-accent"
-                >
+                <Link href="/" className="transition-colors hover:text-accent">
                   Köpvillkor
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/integritet"
-                  className="transition-colors hover:text-accent"
-                >
+                <Link href="/" className="transition-colors hover:text-accent">
                   Integritetspolicy
                 </Link>
               </li>
@@ -161,7 +156,9 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-accent/15 py-6 text-xs text-accent/60 sm:flex-row">
-          <p>© {new Date().getFullYear()} Saltex. Alla rättigheter förbehållna.</p>
+          <p>
+            © {new Date().getFullYear()} Saltex. Alla rättigheter förbehållna.
+          </p>
           <div className="flex items-center gap-4">
             <Link
               href="/kopvillkor"

@@ -33,7 +33,7 @@ export function Header() {
 
             {/* TODO(kollegor): koppla på kundvagnslogik */}
             <Link
-              href="/varukorg"
+              href="/"
               aria-label="Kundvagn"
               className="relative flex h-9 w-9 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-background hover:text-foreground"
             >
