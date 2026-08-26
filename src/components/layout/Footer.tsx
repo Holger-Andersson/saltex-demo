@@ -107,10 +107,7 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-accent">Företaget</h4>
             <ul className="mt-3 space-y-2 text-sm text-accent/70">
               <li>
-                <Link
-                  href="/om-oss"
-                  className="transition-colors hover:text-accent"
-                >
+                <Link href="/" className="transition-colors hover:text-accent">
                   Om oss
                 </Link>
               </li>
