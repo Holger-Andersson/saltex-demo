@@ -13,6 +13,24 @@ export interface ProductDownload {
   sizeLabel?: string;
 }
 
+export type PlayValue =
+  | "balancing"
+  | "climbing"
+  | "cooperation"
+  | "crawling"
+  | "hanging"
+  | "hiding"
+  | "inclusive"
+  | "interaction"
+  | "rocking"
+  | "role-play"
+  | "running"
+  | "shaping"
+  | "sliding"
+  | "swinging"
+  | "tactile-play"
+  | "visual-stimulation";
+
 export interface Product {
   id: string;
   slug: string;
@@ -33,6 +51,8 @@ export interface Product {
   };
 
   downloads?: ProductDownload[];
+
+  playValues?: PlayValue[];
 
   specifications: {
     height?: string;

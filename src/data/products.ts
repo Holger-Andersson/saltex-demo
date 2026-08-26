@@ -19,6 +19,13 @@ export const products: Product[] = [
     model3d: {
       url: "/models/fjäder-bil.glb",
     },
+    playValues: [
+      "balancing",
+      "rocking",
+      "swinging",
+      "role-play",
+      "visual-stimulation",
+    ],
     downloads: [
       {
         label: "Produktblad (SV)",
@@ -64,6 +71,7 @@ export const products: Product[] = [
     model3d: {
       url: "/models/sandbord-multivaning.glb",
     },
+    playValues: ["inclusive", "shaping", "tactile-play", "visual-stimulation"],
     downloads: [
       {
         label: "Produktblad (SV)",
@@ -119,6 +127,16 @@ export const products: Product[] = [
     model3d: {
       url: "/models/lekland-xl.glb",
     },
+    playValues: [
+      "climbing",
+      "crawling",
+      "sliding",
+      "cooperation",
+      "hiding",
+      "interaction",
+      "role-play",
+      "shaping",
+    ],
     downloads: [
       {
         label: "Produktblad (SV)",
@@ -162,6 +180,15 @@ export const products: Product[] = [
     model3d: {
       url: "/models/stor-gungställning.glb",
     },
+    playValues: [
+      "balancing",
+      "hanging",
+      "cooperation",
+      "inclusive",
+      "rocking",
+      "swinging",
+      "visual-stimulation",
+    ],
     downloads: [
       {
         label: "Produktblad (SV)",
@@ -212,6 +239,14 @@ export const products: Product[] = [
     model3d: {
       url: "/models/linbana-enkel.glb",
     },
+    playValues: [
+      "balancing",
+      "sliding",
+      "hanging",
+      "inclusive",
+      "running",
+      "visual-stimulation",
+    ],
     downloads: [
       {
         label: "Produktblad (SV)",
@@ -261,6 +296,7 @@ export const products: Product[] = [
     model3d: {
       url: "/models/trippel.glb",
     },
+    playValues: ["cooperation", "interaction", "tactile-play", "visual-stimulation"],
     downloads: [
       {
         label: "Produktblad (SV)",
@@ -298,6 +334,14 @@ export const products: Product[] = [
     model3d: {
       url: "/models/skogskoja-w.glb",
     },
+    playValues: [
+      "cooperation",
+      "hiding",
+      "interaction",
+      "role-play",
+      "shaping",
+      "visual-stimulation",
+    ],
     downloads: [
       {
         label: "Produktblad (SV)",

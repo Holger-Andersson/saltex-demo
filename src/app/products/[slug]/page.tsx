@@ -8,6 +8,7 @@ import { ProductDownloads } from "@/components/product/ProductDownloads";
 import { ProductInfo } from "@/components/product/ProductInfo";
 import { ProductMedia } from "@/components/product/ProductMedia";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { ProductPlayValues } from "@/components/product/ProductPlayValues";
 import { ProductSpecifications } from "@/components/product/ProductSpecifications";
 import { getProductBySlug, getProductsByCategory } from "@/lib/products";
 
@@ -66,6 +67,12 @@ export default async function ProductPage({
         <div className="mt-12">
           <ProductSpecifications specifications={product.specifications} />
         </div>
+
+        {product.playValues && product.playValues.length > 0 && (
+          <div className="mt-12">
+            <ProductPlayValues values={product.playValues} />
+          </div>
+        )}
 
         {product.downloads && product.downloads.length > 0 && (
           <div className="mt-12 border-t border-border pt-8">
