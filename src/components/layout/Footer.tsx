@@ -104,7 +104,7 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm text-accent/70">
               <li>
                 <Link
-                  href="/om-oss"
+                  href="/"
                   className="transition-colors hover:text-accent"
                 >
                   Om oss
@@ -120,11 +120,11 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/leverans"
+                  href="/"
                   className="transition-colors hover:text-accent"
                 >
                   Leverans
-                </Link>
+                </Link>§
               </li>
             </ul>
           </div>
@@ -134,7 +134,7 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-sm text-accent/70">
               <li>
                 <Link
-                  href="/kopvillkor"
+                  href="/"
                   className="transition-colors hover:text-accent"
                 >
                   Köpvillkor

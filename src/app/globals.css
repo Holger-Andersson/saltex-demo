@@ -49,3 +49,318 @@ body {
     display: none;
   }
 }
+
+@keyframes play-icon-wobble {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes play-icon-swing {
+  0%,
+  100% {
+    transform: rotate(-9deg);
+  }
+  50% {
+    transform: rotate(9deg);
+  }
+}
+
+@keyframes play-icon-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes play-icon-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes play-icon-touch {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes play-icon-peek {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes play-icon-crawl {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(16px);
+  }
+}
+
+@keyframes play-icon-climb {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(14px, -14px);
+  }
+}
+
+@keyframes play-icon-hide-figure {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.15;
+    transform: translateX(18px);
+  }
+}
+
+@keyframes play-icon-approach-left {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-26px);
+  }
+}
+
+@keyframes play-icon-approach-right {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(26px);
+  }
+}
+
+@keyframes play-icon-highfive-flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  15%,
+  85% {
+    opacity: 0;
+  }
+}
+
+@keyframes play-icon-dig {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  30% {
+    transform: translate(8px, 10px) rotate(-8deg);
+  }
+  60% {
+    transform: translate(-4px, -16px) rotate(12deg);
+  }
+}
+
+@keyframes play-icon-block-drop {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -16px);
+  }
+}
+
+@keyframes play-icon-block-left {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-14px, 0);
+  }
+}
+
+@keyframes play-icon-block-right {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(14px, 0);
+  }
+}
+
+@keyframes play-icon-slide-figure {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(45px, 20px) rotate(-15deg);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(45px, 20px) rotate(-15deg);
+    opacity: 0;
+  }
+  85.01% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes play-icon-fly {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  35% {
+    transform: translate(45px, -60px) rotate(10deg) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(80px, -100px) rotate(14deg) scale(1);
+    opacity: 0;
+  }
+  50.01% {
+    transform: translate(0, 0) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  65% {
+    transform: translate(0, 0) rotate(0deg) scale(1.08);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes play-icon-blink {
+  0%,
+  80%,
+  100% {
+    transform: scaleY(1);
+  }
+  90% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* Ikonerna animeras bara medan de är "aktiva" (styrs av ProductPlayValues, en
+   ikon i taget) — klassen läggs på/tas bort i React, så "infinite" här bara
+   betyder "loopa medan det är din tur", inte "animera för alltid". */
+.play-icon-wobble {
+  transform-origin: 50% 88%;
+  animation: play-icon-wobble 1s ease-in-out infinite;
+}
+
+.play-icon-swing {
+  transform-origin: 50% 10%;
+  animation: play-icon-swing 1s ease-in-out infinite;
+}
+
+.play-icon-bounce {
+  animation: play-icon-bounce 0.9s ease-in-out infinite;
+}
+
+.play-icon-crawl {
+  animation: play-icon-crawl 1.4s ease-in-out infinite;
+}
+
+.play-icon-climb {
+  animation: play-icon-climb 1.6s ease-in-out infinite;
+}
+
+.play-icon-pulse {
+  animation: play-icon-pulse 0.9s ease-in-out infinite;
+}
+
+.play-icon-touch {
+  animation: play-icon-touch 1s ease-in-out infinite;
+}
+
+.play-icon-peek {
+  animation: play-icon-peek 1s ease-in-out infinite;
+}
+
+.play-icon-hide-figure {
+  animation: play-icon-hide-figure 1.5s ease-in-out infinite;
+}
+
+.play-icon-approach-left {
+  animation: play-icon-approach-left 2.4s ease-in-out infinite;
+}
+
+.play-icon-approach-right {
+  animation: play-icon-approach-right 2.4s ease-in-out infinite;
+}
+
+.play-icon-highfive-flash {
+  animation: play-icon-highfive-flash 2.4s ease-in-out infinite;
+}
+
+.play-icon-dig {
+  animation: play-icon-dig 2.2s ease-in-out infinite;
+}
+
+.play-icon-block-drop {
+  animation: play-icon-block-drop 2.2s ease-in-out infinite;
+}
+
+.play-icon-block-left {
+  animation: play-icon-block-left 2.2s ease-in-out infinite;
+}
+
+.play-icon-block-right {
+  animation: play-icon-block-right 2.2s ease-in-out infinite;
+}
+
+.play-icon-slide-figure {
+  animation: play-icon-slide-figure 2s ease-in-out infinite;
+}
+
+.play-icon-fly {
+  animation: play-icon-fly 2.2s ease-in-out infinite;
+}
+
+.play-icon-blink {
+  animation: play-icon-blink 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class^="play-icon-"] {
+    animation: none;
+  }
+}
