@@ -27,9 +27,10 @@ export function ProductPlayValues({ values }: { values: PlayValue[] }) {
                 <span className="text-xs font-medium text-foreground/70 lg:text-left lg:text-sm">
                   {label}
                 </span>
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-accent/10 p-2">
+                <div className="icon-sweep-wrap relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-accent/10 p-2">
                   {/* eslint-disable-next-line @next/next/no-img-element -- static icon set, no optimization needed */}
                   <img src={icon} alt="" className="h-full w-full object-contain" />
+                  <span className="icon-sweep pointer-events-none absolute inset-0" />
                 </div>
               </div>
             );
@@ -41,8 +42,8 @@ export function ProductPlayValues({ values }: { values: PlayValue[] }) {
         )}
 
         {hasOverflow && (
-          <div className="drag-hint pointer-events-none absolute inset-0 flex items-center justify-center [animation:drag-hint-fade_2.2s_ease-in-out_forwards] lg:hidden">
-            <span className="flex items-center gap-1.5 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white shadow-lg [animation:drag-hint-move_1.1s_ease-in-out_2]">
+          <div className="drag-hint pointer-events-none absolute inset-0 flex items-center justify-center [animation:drag-hint-fade_4.2s_ease-in-out_forwards] lg:hidden">
+            <span className="flex items-center gap-1.5 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white shadow-lg [animation:drag-hint-move_1.1s_ease-in-out_4]">
               <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5 shrink-0">
                 <path
                   d="M12 6l-4 4 4 4"

@@ -78,8 +78,8 @@ export function ProductViewer({ modelUrl }: { modelUrl: string }) {
         Interaktiv 3D
       </span>
 
-      <div className="drag-hint pointer-events-none absolute inset-0 flex items-center justify-center [animation:drag-hint-fade_2.2s_ease-in-out_forwards]">
-        <span className="flex items-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm font-medium text-white shadow-lg [animation:drag-hint-move_1.1s_ease-in-out_2]">
+      <div className="drag-hint pointer-events-none absolute inset-0 flex items-center justify-center [animation:drag-hint-fade_4.2s_ease-in-out_forwards]">
+        <span className="flex items-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm font-medium text-white shadow-lg [animation:drag-hint-move_1.1s_ease-in-out_4]">
           <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0">
             <path d="M12 6l-4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

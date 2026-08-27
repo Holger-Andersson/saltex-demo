@@ -28,8 +28,8 @@ body {
   100% {
     opacity: 0;
   }
-  12%,
-  75% {
+  6%,
+  87% {
     opacity: 1;
   }
 }
@@ -44,8 +44,34 @@ body {
   }
 }
 
+.icon-sweep {
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.65) 50%, transparent 70%);
+  opacity: 0;
+  transform: translateX(-120%);
+}
+
+.icon-sweep-wrap:hover .icon-sweep {
+  animation: icon-sweep 0.9s ease-in-out;
+}
+
+@keyframes icon-sweep {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .drag-hint {
+  .drag-hint,
+  .icon-sweep {
     display: none;
   }
 }
