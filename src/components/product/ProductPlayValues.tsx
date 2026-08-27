@@ -1,15 +1,90 @@
+"use client";
+
 // Visar produktens lekvärden (t.ex. balans, gungrörelse, rollspel).
 // Mobil: en horisontellt svepbar slide av ikon-chips (ikon ovanför text). En kant-nedtoning till
 // höger samt en svep-hint (samma mönster som "drag-hint" i 3D-visaren) gör det tydligt att man
 // kan svepa för att se fler, om det finns fler än 3 lekvärden.
 // Desktop (lg): en vertikal lista med en delad, fast ikonkolumn (auto) så ikonerna hamnar i en rak linje.
+// En ikon i taget animeras och får en grön ram — turen går vidare till nästa efter ett kort tag,
+// så att raden aldrig rör sig på flera ställen samtidigt.
+import { useEffect, useState } from "react";
+
+import { BalancingIcon } from "@/components/product/BalancingIcon";
+import { ClimbingIcon } from "@/components/product/ClimbingIcon";
+import { CooperationIcon } from "@/components/product/CooperationIcon";
+import { CrawlingIcon } from "@/components/product/CrawlingIcon";
+import { HangingIcon } from "@/components/product/HangingIcon";
+import { HidingIcon } from "@/components/product/HidingIcon";
+import { InclusiveIcon } from "@/components/product/InclusiveIcon";
+import { InteractionIcon } from "@/components/product/InteractionIcon";
+import { RockingIcon } from "@/components/product/RockingIcon";
+import { ShapingIcon } from "@/components/product/ShapingIcon";
+import { SlidingIcon } from "@/components/product/SlidingIcon";
+import { SwingingIcon } from "@/components/product/SwingingIcon";
+import { TactileIcon } from "@/components/product/TactileIcon";
 import { PLAY_VALUES } from "@/lib/products";
 import type { PlayValue } from "@/types/product";
 
+// Vissa lekvärden har en handgjord, inline SVG-animation istället för att bara
+// animera hela <img>-ikonen (t.ex. en figur som rör sig separat från bakgrunden).
+const CUSTOM_ICONS: Partial<
+  Record<
+    PlayValue,
+    (props: {
+      className?: string;
+      animationDelay?: string;
+      active?: boolean;
+    }) => React.ReactElement
+  >
+> = {
+  hiding: HidingIcon,
+  sliding: SlidingIcon,
+  interaction: InteractionIcon,
+  shaping: ShapingIcon,
+  cooperation: CooperationIcon,
+  crawling: CrawlingIcon,
+  climbing: ClimbingIcon,
+  "tactile-play": TactileIcon,
+  inclusive: InclusiveIcon,
+  balancing: BalancingIcon,
+  rocking: RockingIcon,
+  swinging: SwingingIcon,
+  hanging: HangingIcon,
+};
+
+const PLAY_VALUE_MOTION: Record<PlayValue, string> = {
+  balancing: "play-icon-wobble",
+  rocking: "play-icon-wobble",
+  swinging: "play-icon-swing",
+  hanging: "play-icon-swing",
+  climbing: "play-icon-bounce",
+  running: "play-icon-bounce",
+  sliding: "play-icon-bounce",
+  crawling: "play-icon-crawl",
+  hiding: "play-icon-peek",
+  cooperation: "play-icon-pulse",
+  interaction: "play-icon-pulse",
+  inclusive: "play-icon-pulse",
+  "role-play": "play-icon-fly",
+  "tactile-play": "play-icon-pulse",
+  "visual-stimulation": "play-icon-blink",
+  shaping: "play-icon-pulse",
+};
+
+const HIGHLIGHT_DURATION_MS = 2600;
 const VISIBLE_ON_MOBILE = 3;
 
 export function ProductPlayValues({ values }: { values: PlayValue[] }) {
   const hasOverflow = values.length > VISIBLE_ON_MOBILE;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (values.length <= 1) return;
+    const id = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % values.length);
+    }, HIGHLIGHT_DURATION_MS);
+    return () => clearInterval(id);
+  }, [values.length]);
 
   return (
     <div className="relative">
@@ -17,19 +92,41 @@ export function ProductPlayValues({ values }: { values: PlayValue[] }) {
 
       <div className="relative">
         <div className="mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-x-4 lg:gap-y-3 lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:hidden">
-          {values.map((value) => {
+          {values.map((value, index) => {
             const { label, icon } = PLAY_VALUES[value];
+            const CustomIcon = CUSTOM_ICONS[value];
+            const active = index === activeIndex;
             return (
               <div
                 key={value}
                 className="flex shrink-0 grow-0 basis-[30%] snap-start flex-col-reverse items-center gap-2 text-center lg:w-auto lg:shrink lg:basis-auto lg:contents"
               >
-                <span className="text-xs font-medium text-foreground/70 lg:text-left lg:text-sm">
+                <span
+                  className={`text-xs font-medium transition-colors duration-300 lg:text-left lg:text-sm ${
+                    active ? "text-accent" : "text-foreground/70"
+                  }`}
+                >
                   {label}
                 </span>
-                <div className="icon-sweep-wrap relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-accent/10 p-2">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- static icon set, no optimization needed */}
-                  <img src={icon} alt="" className="h-full w-full object-contain" />
+                <div
+                  className={`icon-sweep-wrap relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 bg-accent/10 p-1 transition-all duration-300 ${
+                    active
+                      ? "scale-105 border-accent shadow-md"
+                      : "border-transparent"
+                  }`}
+                >
+                  {CustomIcon ? (
+                    <CustomIcon className="h-full w-full" active={active} />
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element -- static icon set, no optimization needed
+                    <img
+                      src={icon}
+                      alt=""
+                      className={`h-full w-full object-contain ${
+                        active ? PLAY_VALUE_MOTION[value] : ""
+                      }`}
+                    />
+                  )}
                   <span className="icon-sweep pointer-events-none absolute inset-0" />
                 </div>
               </div>
