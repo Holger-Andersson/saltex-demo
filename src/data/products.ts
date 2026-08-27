@@ -19,6 +19,15 @@ export const products: Product[] = [
     model3d: {
       url: "/models/fjäder-bil.glb",
     },
+    playValues: [
+      "balancing",
+      "rocking",
+      "swinging",
+      "role-play",
+      "visual-stimulation",
+      "tactile-play",
+      "inclusive",
+    ],
     downloads: [
       {
         label: "Produktblad (SV)",
