@@ -154,7 +154,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-accent/15 py-6 text-xs text-accent/60 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} Saltex. Alla rättigheter förbehållna.
+            © {new Date().getFullYear()} Leobrandt Group AB. Alla rättigheter förbehållna.
           </p>
           <div className="flex items-center gap-4">
             <Link

@@ -71,7 +71,29 @@ const PLAY_VALUE_MOTION: Record<PlayValue, string> = {
   shaping: "play-icon-pulse",
 };
 
-const HIGHLIGHT_DURATION_MS = 2600;
+// Hur länge varje lekvärde highlightas — alltid ett helt antal varv av dess
+// egen CSS-animationstid, så ingen ikon någonsin klipps av mitt i en rörelse.
+// (t.ex. rollspel: play-icon-fly är 2.2s, så den får exakt 2200ms, inte ett
+// gemensamt fönster som råkar hamna mitt i nästa varv.)
+const HIGHLIGHT_DURATION_MS: Record<PlayValue, number> = {
+  balancing: 2000, // play-icon-wobble 1s × 2
+  rocking: 2000, // play-icon-wobble 1s × 2
+  swinging: 2000, // play-icon-swing 1s × 2
+  hanging: 2000, // play-icon-swing 1s × 2
+  running: 1800, // play-icon-bounce 0.9s × 2
+  crawling: 2800, // play-icon-crawl 1.4s × 2
+  climbing: 3200, // play-icon-climb 1.6s × 2
+  hiding: 3000, // play-icon-hide-figure 1.5s × 2
+  "tactile-play": 2450, // play-icon-touch 1s × 2 + 450ms sista cirkelns stagger
+  sliding: 2000, // play-icon-slide-figure 2s × 1
+  shaping: 2200, // play-icon-dig 2.2s × 1
+  cooperation: 2200, // play-icon-block-* 2.2s × 1
+  interaction: 2400, // play-icon-approach-*/highfive-flash 2.4s × 1
+  inclusive: 2400, // play-icon-highfive-flash 2.4s × 1
+  "role-play": 2900, // play-icon-fly 2.9s × 1
+  "visual-stimulation": 1800, // play-icon-blink 1.8s × 1
+};
+const DEFAULT_HIGHLIGHT_DURATION_MS = 2200;
 const VISIBLE_ON_MOBILE = 3;
 
 export function ProductPlayValues({ values }: { values: PlayValue[] }) {
@@ -80,11 +102,14 @@ export function ProductPlayValues({ values }: { values: PlayValue[] }) {
 
   useEffect(() => {
     if (values.length <= 1) return;
-    const id = setInterval(() => {
+    const activeValue = values[activeIndex];
+    const duration =
+      HIGHLIGHT_DURATION_MS[activeValue] ?? DEFAULT_HIGHLIGHT_DURATION_MS;
+    const id = setTimeout(() => {
       setActiveIndex((current) => (current + 1) % values.length);
-    }, HIGHLIGHT_DURATION_MS);
-    return () => clearInterval(id);
-  }, [values.length]);
+    }, duration);
+    return () => clearTimeout(id);
+  }, [values, activeIndex]);
 
   return (
     <div className="relative">
