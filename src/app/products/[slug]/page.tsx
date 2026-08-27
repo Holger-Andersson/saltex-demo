@@ -28,6 +28,10 @@ export default async function ProductPage({
     .filter((candidate) => candidate.id !== product.id)
     .slice(0, RELATED_PRODUCTS_LIMIT);
 
+  const hasPlayValues = Boolean(
+    product.playValues && product.playValues.length > 0,
+  );
+
   return (
     <Container>
       <div className="py-8">
@@ -46,8 +50,22 @@ export default async function ProductPage({
           <span className="text-foreground">{product.name}</span>
         </nav>
 
-        <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-5">
-          <div className="lg:col-span-3">
+        <div
+          className={`mt-6 grid grid-cols-1 gap-10 ${
+            hasPlayValues ? "lg:grid-cols-7" : "lg:grid-cols-5"
+          }`}
+        >
+          {product.playValues && product.playValues.length > 0 && (
+            <div className="order-2 lg:order-none lg:col-span-1 lg:-ml-6 lg:mt-8 lg:mr-6">
+              <ProductPlayValues values={product.playValues} />
+            </div>
+          )}
+
+          <div
+            className={`order-1 lg:order-none ${
+              hasPlayValues ? "lg:col-span-4" : "lg:col-span-3"
+            }`}
+          >
             <ProductMedia
               model3d={product.model3d}
               images={product.images}
@@ -55,7 +73,7 @@ export default async function ProductPage({
             />
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="order-3 lg:order-none lg:col-span-2">
             <ProductInfo product={product} />
           </div>
         </div>
@@ -67,12 +85,6 @@ export default async function ProductPage({
         <div className="mt-12">
           <ProductSpecifications specifications={product.specifications} />
         </div>
-
-        {product.playValues && product.playValues.length > 0 && (
-          <div className="mt-12">
-            <ProductPlayValues values={product.playValues} />
-          </div>
-        )}
 
         {product.downloads && product.downloads.length > 0 && (
           <div className="mt-12 border-t border-border pt-8">
